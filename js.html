@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>js Bridge demo</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+    function shareSucc(isShare) {
+        alert(isShare)
+    }
+
+    function reqUserInfoClick() {
+        try {
+            alert(iOSApp.getUserInfo())
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    function reqShareClick() {
+        try {
+            iOSApp.shareAction("分享title", "分享content", "分享url", "shareSucc")
+        } catch (err) {
+            alert(err)
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <h1>js demo test</h1>
+    <p style="text-align: center;">
+        <button type="button" onclick="reqUserInfoClick()" style="font-size: 100px;">获取用户信息</button>
+        <button type="button" onclick="reqShareClick()" style="font-size: 100px;">执行分享</button>
+    </p>
+</body>
+
+</html>
